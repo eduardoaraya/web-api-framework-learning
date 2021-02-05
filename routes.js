@@ -1,5 +1,5 @@
 module.exports = (app) => {
   app.route('/', (req, res) => {
-    res.end('Meu amor 2');
+    res.end('Ok');
   })
 }
