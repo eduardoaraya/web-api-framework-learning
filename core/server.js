@@ -12,38 +12,40 @@ const PRODUCTION_FLAG = 'production';
 const DEVELOPMENT_FLAG = 'develop';
 
 /**
- * 
+ *
  */
 class App {
-
   /**
-   * 
+   * @type {Object}
    */
   #server;
-
   /**
    * @type {Object}
    */
   #routes = {
-    '404': (req, res) => res.end('Page notfound!')
+    '404': (req, res) => res.end('Page not found!')
   };
-
   /**
    * @type {Array}
    */
   #handles = [
     (req, res) => this.#handleRoutes(req.url, { req, res })
   ];
-
   /**
    * 
    * @param {*} configs 
    */
   constructor({ routes }) {
-    this.#server = http.createServer((req, res) => this.#middlewares(req, res));
-    this.#server.listen(App.getPort(), 'localhost', 0, () => {
-      log('> Connection on port:', App.getPort());
-    })
+    this.#server = http
+      .createServer((req, res) => this.#middlewares(req, res))
+      .listen(
+        App.getPort(),
+        'localhost',
+        0,
+        () => {
+          log('> Connection on port:', App.getPort());
+        }
+      )
     routes(this);
   }
 
