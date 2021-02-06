@@ -37,8 +37,8 @@ export default class App {
    * @param {*} configs 
    */
   constructor({ routes }) {
-    this.start()
-      .then(() => routes(this))
+    // this.start()
+    //   .then(() => routes(this))
   }
 
   private start(): Promise<Server> {

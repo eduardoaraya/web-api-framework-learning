@@ -3,7 +3,6 @@ import os from 'os';
 import log from 'debug';
 
 log('core:cluster');
-
 /**
  * 
  * @param {*} App 
